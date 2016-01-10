@@ -10,6 +10,11 @@ This code may only be used under the MIT license.
 <!--
 Element wrapper for the [moment](https://github.com/moment/moment) library.
 
+Examples:
+
+    <moment-element></moment-element>
+    <moment-element datetime="1991-12-31" format="MMM DD[,] YYYY"></moment-element>
+
 @demo demo/index.html
 -->
 
@@ -23,10 +28,32 @@ Element wrapper for the [moment](https://github.com/moment/moment) library.
       is: 'moment-element',
 
       properties: {
+        /**
+         * The datetime. If don't set the datetime, the datetime will be now.
+         */
         datetime: Date,
+
+        /**
+         * The datetime format. Options are 'now' or datetime using the
+         * [moment format](http://momentjs.com/docs/#/displaying/format/).
+         */
         format: String,
+
+        /**
+         * Relative time using [momen time from now](http://momentjs.com/docs/#/displaying/fromnow/)
+         * or [momen time from datetime](http://momentjs.com/docs/#/displaying/from/).
+         */
         from: String,
+
+        /**
+         * Relative time using [momen time to now](http://momentjs.com/docs/#/displaying/tonow/)
+         * or [momen time to datetime](http://momentjs.com/docs/#/displaying/to/).
+         */
         to: String,
+
+        /**
+         * The output datetime.
+         */
         _output: String
       },
 
