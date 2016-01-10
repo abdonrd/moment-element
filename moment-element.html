@@ -31,7 +31,7 @@ Examples:
         /**
          * The datetime. If don't set the datetime, the datetime will be now.
          */
-        datetime: Date,
+        datetime: String,
 
         /**
          * The datetime format. Options are 'now' or datetime using the
@@ -58,7 +58,7 @@ Examples:
       },
 
       ready: function() {
-        this._output = this.datetime ? moment(this.datetime) : moment();
+        this._output = this.datetime ? moment(new Date(this.datetime)) : moment();
 
         if (this.format) {
           this._output = this._output.format(this.format);
