@@ -58,7 +58,7 @@ Examples:
       },
 
       ready: function() {
-        this.output = this.datetime ? moment(new Date(this.datetime)) : moment();
+        this.output = this.datetime ? moment(this.datetime) : moment();
 
         if (this.outputFormat) {
           this.output = this.output.format(this.outputFormat);
@@ -68,7 +68,7 @@ Examples:
           if (this.from === 'now') {
             this.output = this.output.fromNow();
           } else {
-            this.output = this.output.from(moment(new Date(this.from)));
+            this.output = this.output.from(moment(this.from));
           }
         }
 
@@ -76,7 +76,7 @@ Examples:
           if (this.to === 'now') {
             this.output = this.output.toNow();
           } else {
-            this.output = this.output.to(moment(new Date(this.to)));
+            this.output = this.output.to(moment(this.to));
           }
         }
 
