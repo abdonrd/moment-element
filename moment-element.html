@@ -13,7 +13,7 @@ Element wrapper for the [moment](https://github.com/moment/moment) library.
 Examples:
 
     <moment-element></moment-element>
-    <moment-element datetime="1991-12-31" format="MMM DD[,] YYYY"></moment-element>
+    <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
 
 @demo demo/index.html
 -->
@@ -29,58 +29,83 @@ Examples:
 
       properties: {
         /**
-         * The datetime. If don't set the datetime, the datetime will be now.
+         * The input datetime. If don't set the datetime, the datetime will be now.
+         * For consistent results, parsing anything other than ISO 8601 strings
+         * with the `inputFormat` property. More information in [moment String](http://momentjs.com/docs/#/parsing/string/).
          */
         datetime: String,
 
         /**
-         * The datetime format. Options are 'now' or datetime using the
-         * [moment format](http://momentjs.com/docs/#/displaying/format/).
+         * The datetime input format. An string using the
+         * [moment String + Format](http://momentjs.com/docs/#/parsing/string-format/).
          */
-        format: String,
+        inputFormat: String,
+
+        /**
+         * The datetime output format. Options are 'now' or datetime using the
+         * [moment Format](http://momentjs.com/docs/#/displaying/format/).
+         */
+        outputFormat: String,
+
+        /**
+         * Calendar will format a date with different strings depending on how
+         * close to referenceTime's date (today by default) the date is. More
+         * information in [moment Calendar time](http://momentjs.com/docs/#/displaying/calendar-time/)
+         */
+        calendar: String,
 
         /**
          * Relative time using [momen time from now](http://momentjs.com/docs/#/displaying/fromnow/)
-         * or [momen time from datetime](http://momentjs.com/docs/#/displaying/from/).
+         * or [momen Time from datetime](http://momentjs.com/docs/#/displaying/from/).
          */
         from: String,
 
         /**
-         * Relative time using [momen time to now](http://momentjs.com/docs/#/displaying/tonow/)
-         * or [momen time to datetime](http://momentjs.com/docs/#/displaying/to/).
+         * Relative time using [momen Time to now](http://momentjs.com/docs/#/displaying/tonow/)
+         * or [momen Time to datetime](http://momentjs.com/docs/#/displaying/to/).
          */
         to: String,
 
         /**
          * The output datetime.
          */
-        _output: String
+        output: String
       },
 
       ready: function() {
-        this._output = this.datetime ? moment(new Date(this.datetime)) : moment();
+        if (this.datetime && this.inputFormat) {
+          this.output = moment(this.datetime, this.inputFormat);
+        } else if (this.datetime) {
+          this.output = moment(this.datetime);
+        } else {
+          this.output = moment();
+        }
 
-        if (this.format) {
-          this._output = this._output.format(this.format);
+        if (this.outputFormat) {
+          this.output = this.output.format(this.outputFormat);
         }
 
         if (this.from) {
           if (this.from === 'now') {
-            this._output = this._output.fromNow();
+            this.output = this.output.fromNow();
           } else {
-            this._output = this._output.from(moment(new Date(this.from)));
+            this.output = this.output.from(moment(this.from));
           }
         }
 
         if (this.to) {
           if (this.to === 'now') {
-            this._output = this._output.toNow();
+            this.output = this.output.toNow();
           } else {
-            this._output = this._output.to(moment(new Date(this.to)));
+            this.output = this.output.to(moment(this.to));
           }
         }
 
-        Polymer.dom(this.root).innerHTML = this._output;
+        if (this.calendar === '') {
+          this.output = moment().calendar();
+        }
+
+        Polymer.dom(this.root).innerHTML = this.output;
       }
     });
   </script>

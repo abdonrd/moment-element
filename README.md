@@ -4,5 +4,7 @@ Element wrapper for the [moment](https://github.com/moment/moment) library.
 
 Examples:
 
-    <moment-element></moment-element>
-    <moment-element datetime="1991-12-31" format="MMM DD[,] YYYY"></moment-element>
+```html
+<moment-element></moment-element>
+<moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
+```

@@ -28,19 +28,21 @@ This code may only be used under the MIT license.
   </head>
   <body unresolved>
     <div class="vertical-section-container centered">
-      <h3>Current date and date from string</h3>
+      <h3>Current date and date from string (ISO 8601 and another)</h3>
       <demo-snippet>
         <template>
           <moment-element></moment-element>
           <moment-element datetime="1991-12-31"></moment-element>
+          <moment-element datetime="12-31-1991" input-format="MM-DD-YYYY"></moment-element>
         </template>
       </demo-snippet>
 
       <h3>Date from string + format</h3>
       <demo-snippet>
         <template>
-          <moment-element datetime="1991-12-31" format="l"></moment-element>
-          <moment-element datetime="1991-12-31" format="MMM DD[,] YYYY"></moment-element>
+          <moment-element datetime="1991-12-31" output-format="l"></moment-element>
+          <moment-element datetime="12-31-1991" input-format="MM-DD-YYYY" output-format="l"></moment-element>
+          <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
         </template>
       </demo-snippet>
 
@@ -57,6 +59,13 @@ This code may only be used under the MIT license.
         <template>
           <moment-element datetime="1991-12-31" to="now"></moment-element>
           <moment-element datetime="1991-12-31" to="2003-06-23"></moment-element>
+        </template>
+      </demo-snippet>
+
+      <h3>Calendar date</h3>
+      <demo-snippet>
+        <template>
+          <moment-element calendar></moment-element>
         </template>
       </demo-snippet>
     </div>
