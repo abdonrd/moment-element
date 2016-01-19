@@ -54,33 +54,33 @@ Examples:
         /**
          * The output datetime.
          */
-        _output: String
+        output: String
       },
 
       ready: function() {
-        this._output = this.datetime ? moment(new Date(this.datetime)) : moment();
+        this.output = this.datetime ? moment(new Date(this.datetime)) : moment();
 
         if (this.format) {
-          this._output = this._output.format(this.format);
+          this.output = this.output.format(this.format);
         }
 
         if (this.from) {
           if (this.from === 'now') {
-            this._output = this._output.fromNow();
+            this.output = this.output.fromNow();
           } else {
-            this._output = this._output.from(moment(new Date(this.from)));
+            this.output = this.output.from(moment(new Date(this.from)));
           }
         }
 
         if (this.to) {
           if (this.to === 'now') {
-            this._output = this._output.toNow();
+            this.output = this.output.toNow();
           } else {
-            this._output = this._output.to(moment(new Date(this.to)));
+            this.output = this.output.to(moment(new Date(this.to)));
           }
         }
 
-        Polymer.dom(this.root).innerHTML = this._output;
+        Polymer.dom(this.root).innerHTML = this.output;
       }
     });
   </script>
