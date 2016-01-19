@@ -6,5 +6,5 @@ Examples:
 
 ```html
 <moment-element></moment-element>
-<moment-element datetime="1991-12-31" format="MMM DD[,] YYYY"></moment-element>
+<moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
 ```

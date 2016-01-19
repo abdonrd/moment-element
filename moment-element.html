@@ -13,7 +13,7 @@ Element wrapper for the [moment](https://github.com/moment/moment) library.
 Examples:
 
     <moment-element></moment-element>
-    <moment-element datetime="1991-12-31" format="MMM DD[,] YYYY"></moment-element>
+    <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
 
 @demo demo/index.html
 -->
@@ -34,10 +34,10 @@ Examples:
         datetime: String,
 
         /**
-         * The datetime format. Options are 'now' or datetime using the
+         * The datetime output format. Options are 'now' or datetime using the
          * [moment format](http://momentjs.com/docs/#/displaying/format/).
          */
-        format: String,
+        outputFormat: String,
 
         /**
          * Relative time using [momen time from now](http://momentjs.com/docs/#/displaying/fromnow/)
@@ -60,8 +60,8 @@ Examples:
       ready: function() {
         this.output = this.datetime ? moment(new Date(this.datetime)) : moment();
 
-        if (this.format) {
-          this.output = this.output.format(this.format);
+        if (this.outputFormat) {
+          this.output = this.output.format(this.outputFormat);
         }
 
         if (this.from) {
