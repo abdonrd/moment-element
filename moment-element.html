@@ -43,19 +43,26 @@ Examples:
 
         /**
          * The datetime output format. Options are 'now' or datetime using the
-         * [moment format](http://momentjs.com/docs/#/displaying/format/).
+         * [moment Format](http://momentjs.com/docs/#/displaying/format/).
          */
         outputFormat: String,
 
         /**
+         * Calendar will format a date with different strings depending on how
+         * close to referenceTime's date (today by default) the date is. More
+         * information in [moment Calendar time](http://momentjs.com/docs/#/displaying/calendar-time/)
+         */
+        calendar: String,
+
+        /**
          * Relative time using [momen time from now](http://momentjs.com/docs/#/displaying/fromnow/)
-         * or [momen time from datetime](http://momentjs.com/docs/#/displaying/from/).
+         * or [momen Time from datetime](http://momentjs.com/docs/#/displaying/from/).
          */
         from: String,
 
         /**
-         * Relative time using [momen time to now](http://momentjs.com/docs/#/displaying/tonow/)
-         * or [momen time to datetime](http://momentjs.com/docs/#/displaying/to/).
+         * Relative time using [momen Time to now](http://momentjs.com/docs/#/displaying/tonow/)
+         * or [momen Time to datetime](http://momentjs.com/docs/#/displaying/to/).
          */
         to: String,
 
@@ -92,6 +99,10 @@ Examples:
           } else {
             this.output = this.output.to(moment(this.to));
           }
+        }
+
+        if (this.calendar === '') {
+          this.output = moment().calendar();
         }
 
         Polymer.dom(this.root).innerHTML = this.output;
