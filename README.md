@@ -1,4 +1,8 @@
-# moment-element
+[![Build Status](https://travis-ci.org/abdonrd/moment-element.svg?branch=master)](https://travis-ci.org/abdonrd/moment-element)
+
+_[Demo and API Docs](https://abdonrd.github.io/moment-element/)_
+
+# &lt;moment-element&gt;
 
 Polymer element wrapper for the [moment](https://github.com/moment/moment) library.
 
