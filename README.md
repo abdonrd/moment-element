@@ -12,3 +12,9 @@ Examples:
 <moment-element></moment-element>
 <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
 ```
+
+## Install
+
+```sh
+bower install moment-element
+```
