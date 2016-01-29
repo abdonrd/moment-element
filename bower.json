@@ -4,7 +4,7 @@
   "authors": [
     "Abdón Rodríguez Davila <a@abdonrd.com>"
   ],
-  "description": "Element wrapper for the moment library",
+  "description": "Polymer element wrapper for the moment library",
   "keywords": [
     "web-component",
     "polymer",

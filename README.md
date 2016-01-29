@@ -1,6 +1,6 @@
 # moment-element
 
-Element wrapper for the [moment](https://github.com/moment/moment) library.
+Polymer element wrapper for the [moment](https://github.com/moment/moment) library.
 
 Examples:
 
