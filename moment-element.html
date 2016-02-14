@@ -69,19 +69,9 @@ Examples:
         this.output = this._initializeMoment();
 
         if (this.from) {
-          if (this.from === 'now') {
-            this.output = this.output.fromNow();
-          } else {
-            this.output = this.output.from(moment(this.from));
-          }
-        }
-
-        if (this.to) {
-          if (this.to === 'now') {
-            this.output = this.output.toNow();
-          } else {
-            this.output = this.output.to(moment(this.to));
-          }
+          this.output = this._getFrom();
+        } else if (this.to) {
+          this.output = this._getTo();
         }
 
         Polymer.dom(this.root).innerHTML = this.output;
@@ -100,6 +90,22 @@ Examples:
           return output.format(this.outputFormat);
         } else {
           return output;
+        }
+      },
+
+      _getFrom: function() {
+        if (this.from === 'now') {
+          return this.output.fromNow();
+        } else {
+          return this.output.from(moment(this.from));
+        }
+      },
+
+      _getTo: function() {
+        if (this.to === 'now') {
+          return this.output.toNow();
+        } else {
+          return this.output.to(moment(this.to));
         }
       }
     });
