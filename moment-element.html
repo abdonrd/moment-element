@@ -66,17 +66,7 @@ Examples:
       },
 
       ready: function() {
-        if (this.datetime && this.inputFormat) {
-          this.output = moment(this.datetime, this.inputFormat);
-        } else if (this.datetime) {
-          this.output = moment(this.datetime);
-        } else {
-          this.output = moment();
-        }
-
-        if (this.outputFormat) {
-          this.output = this.output.format(this.outputFormat);
-        }
+        this.output = this._initializeMoment();
 
         if (this.from) {
           if (this.from === 'now') {
@@ -95,6 +85,22 @@ Examples:
         }
 
         Polymer.dom(this.root).innerHTML = this.output;
+      },
+
+      _initializeMoment: function() {
+        if (this.datetime && this.inputFormat) {
+          var output = moment(this.datetime, this.inputFormat);
+        } else if (this.datetime) {
+          var output = moment(this.datetime);
+        } else {
+          var output = moment();
+        }
+
+        if (this.outputFormat) {
+          return output.format(this.outputFormat);
+        } else {
+          return output;
+        }
       }
     });
   </script>
