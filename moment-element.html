@@ -48,13 +48,6 @@ Examples:
         outputFormat: String,
 
         /**
-         * Calendar will format a date with different strings depending on how
-         * close to referenceTime's date (today by default) the date is. More
-         * information in [moment Calendar time](http://momentjs.com/docs/#/displaying/calendar-time/)
-         */
-        calendar: String,
-
-        /**
          * Relative time using [momen time from now](http://momentjs.com/docs/#/displaying/fromnow/)
          * or [momen Time from datetime](http://momentjs.com/docs/#/displaying/from/).
          */
@@ -73,39 +66,47 @@ Examples:
       },
 
       ready: function() {
-        if (this.datetime && this.inputFormat) {
-          this.output = moment(this.datetime, this.inputFormat);
-        } else if (this.datetime) {
-          this.output = moment(this.datetime);
-        } else {
-          this.output = moment();
-        }
-
-        if (this.outputFormat) {
-          this.output = this.output.format(this.outputFormat);
-        }
+        this.output = this._initializeMoment();
 
         if (this.from) {
-          if (this.from === 'now') {
-            this.output = this.output.fromNow();
-          } else {
-            this.output = this.output.from(moment(this.from));
-          }
-        }
-
-        if (this.to) {
-          if (this.to === 'now') {
-            this.output = this.output.toNow();
-          } else {
-            this.output = this.output.to(moment(this.to));
-          }
-        }
-
-        if (this.calendar === '') {
-          this.output = moment().calendar();
+          this.output = this._getFrom();
+        } else if (this.to) {
+          this.output = this._getTo();
         }
 
         Polymer.dom(this.root).innerHTML = this.output;
+      },
+
+      _initializeMoment: function() {
+        if (this.datetime && this.inputFormat) {
+          var output = moment(this.datetime, this.inputFormat);
+        } else if (this.datetime) {
+          var output = moment(this.datetime);
+        } else {
+          var output = moment();
+        }
+
+        if (this.outputFormat) {
+          return output.format(this.outputFormat);
+        } else {
+          return output;
+        }
+      },
+
+      _getFrom: function() {
+        if (this.from === 'now') {
+          return this.output.fromNow();
+        } else {
+          return this.output.from(moment(this.from));
+        }
+      },
+
+      _getTo: function() {
+        if (this.to === 'now') {
+          return this.output.toNow();
+        } else {
+          return this.output.to(moment(this.to));
+        }
       }
     });
   </script>

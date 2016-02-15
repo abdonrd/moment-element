@@ -1,6 +1,6 @@
 {
   "name": "moment-element",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "authors": [
     "Abdón Rodríguez Davila <a@abdonrd.com>"
   ],
@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "moment": "~2.11.1"
+    "moment": "~2.11.2"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
