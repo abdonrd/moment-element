@@ -18,3 +18,9 @@ bower install moment-element
 <moment-element></moment-element>
 <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
 ```
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2016 Abdón Rodríguez Davila (@abdonrd)
