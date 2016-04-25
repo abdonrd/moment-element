@@ -86,7 +86,6 @@ Examples:
       },
       
       _computeOutput: function(datetime, inputFormat, outputFormat, from, to) {
-        console.log(datetime, inputFormat, outputFormat, from, to)
         var output = inputFormat ? moment(datetime, inputFormat) : moment(datetime);
         if (outputFormat) {
           output = output.format(outputFormat);
