@@ -35,7 +35,9 @@ Examples:
          */
         datetime: {
           type: String,
-          value: new Date().getTime()
+          value: function() {
+            return new Date().getTime();
+          }
         },
 
         /**
@@ -44,7 +46,7 @@ Examples:
          */
         inputFormat: {
           type: String,
-          value: null
+          value: ''
         },
 
         /**
@@ -53,7 +55,7 @@ Examples:
          */
         outputFormat: {
           type: String,
-          value: null
+          value: ''
         },
 
         /**
@@ -62,7 +64,7 @@ Examples:
          */
         from: {
           type: String,
-          value: null
+          value: ''
         },
 
         /**
@@ -71,7 +73,7 @@ Examples:
          */
         to: {
           type: String,
-          value: null
+          value: ''
         },
 
         /**
@@ -79,29 +81,19 @@ Examples:
          */
         output: {
           type: String,
-          computed: 'computeOutput(datetime, inputFormat, outputFormat, from, to)'
+          computed: '_computeOutput(datetime, inputFormat, outputFormat, from, to)'
         }
       },
-
-      _initializeMoment: function() {
-        var output = moment(this.datetime, this.inputFormat);
-        return this.outputFormat ? output.format(this.outputFormat) : output;
-      },
-
-      _getFrom: function(from, output) {
-        return from === 'now' ? output.fromNow() : output.from(moment(from));
-      },
-
-      _getTo: function(to, output) {
-        return to === 'now' ? output.toNow() : output.to(moment(to));
-      },
       
-      computeOutput: function(datetime, inputFormat, outputFormat, from, to) {
-        var output = this._initializeMoment();
-        if (from) {
-          output = this._getFrom(from, output);
+      _computeOutput: function(datetime, inputFormat, outputFormat, from, to) {
+        console.log(datetime, inputFormat, outputFormat, from, to)
+        var output = inputFormat ? moment(datetime, inputFormat) : moment(datetime);
+        if (outputFormat) {
+          output = output.format(outputFormat);
+        } else if (from) {
+          output = from === 'now' ? output.fromNow() : output.from(moment(from));
         } else if (to) {
-          output = this._getTo(to, output);
+          output = to === 'now' ? output.toNow() : output.to(moment(to));
         }
         return output;
       }
