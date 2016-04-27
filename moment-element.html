@@ -84,9 +84,10 @@ Examples:
           computed: '_computeOutput(datetime, inputFormat, outputFormat, from, to)'
         }
       },
-      
+
       _computeOutput: function(datetime, inputFormat, outputFormat, from, to) {
         var output = inputFormat ? moment(datetime, inputFormat) : moment(datetime);
+
         if (outputFormat) {
           output = output.format(outputFormat);
         } else if (from) {
@@ -94,6 +95,7 @@ Examples:
         } else if (to) {
           output = to === 'now' ? output.toNow() : output.to(moment(to));
         }
+
         return output;
       }
     });
