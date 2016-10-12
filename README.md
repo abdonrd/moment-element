@@ -1,26 +1,25 @@
-[![Build status](https://travis-ci.org/abdonrd/moment-element.svg?branch=master)](https://travis-ci.org/abdonrd/moment-element)
+[![Build status][travis-image]][travis-url]
 
-_[Demo and API docs](https://abdonrd.github.io/moment-element/)_
-
-## &lt;moment-element&gt;
+## \<moment-element\>
 
 Polymer element wrapper for the [moment](https://github.com/moment/moment) library.
 
-### Install
-
-```sh
-bower install moment-element
+Example:
+<!---
 ```
-
-### Use
-
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="moment-element.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
 <moment-element></moment-element>
 <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
 ```
 
-## License
-
-Copyright (c) 2016 Abdón Rodríguez Davila (@abdonrd). All rights reserved.
-
-This code may only be used under the MIT style license found at [LICENSE.md](LICENSE.md)
+[travis-image]: https://travis-ci.org/abdonrd/moment-element.svg?branch=master
+[travis-url]: https://travis-ci.org/abdonrd/moment-element
