@@ -20,7 +20,7 @@
   },
   "main": "moment-element.html",
   "dependencies": {
-    "moment": "~2.12.0",
+    "moment": "~2.15.0",
     "polymer": "Polymer/polymer#^1.6.0"
   },
   "devDependencies": {
