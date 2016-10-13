@@ -12,6 +12,11 @@ Example:
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="moment-element.html">
     <next-code-block></next-code-block>
+    <style is="custom-style">
+      moment-element {
+        display: block;
+      }
+    </style>
   </template>
 </custom-element-demo>
 ```
