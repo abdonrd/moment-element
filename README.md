@@ -1,4 +1,5 @@
 [![Build status][travis-image]][travis-url]
+[![Published on webcomponents.org][webcomponents-image]][webcomponents-url]
 
 ## \<moment-element\>
 
@@ -28,3 +29,5 @@ Example:
 
 [travis-image]: https://travis-ci.org/abdonrd/moment-element.svg?branch=master
 [travis-url]: https://travis-ci.org/abdonrd/moment-element
+[webcomponents-image]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
+[webcomponents-url]: https://beta.webcomponents.org/element/abdonrd/moment-element
