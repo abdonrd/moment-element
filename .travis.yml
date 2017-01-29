@@ -16,6 +16,7 @@ cache:
 install:
   - npm install -g web-component-tester
   - npm install -g bower
+  - npm install -g eslint eslint-plugin-html eslint-config-ibmresearch
   - bower install
 script:
   - xvfb-run wct
