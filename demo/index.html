@@ -63,6 +63,20 @@ This code may only be used under the MIT style license found at https://abdonrd.
           <moment-element datetime="1991-12-31" to="2003-06-23"></moment-element>
         </template>
       </demo-snippet>
+
+      <h3>Use setInterval to update the output</h3>
+      <demo-snippet>
+        <template>
+          <moment-element id="datetime" from="now"></moment-element>
+
+          <script>
+            var datetime = document.querySelector('#datetime');
+            window.setInterval(function() {
+              datetime.update();
+            }, 2000);
+          </script>
+        </template>
+      </demo-snippet>
     </div>
   </body>
 </html>
