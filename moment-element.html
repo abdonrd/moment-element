@@ -81,9 +81,19 @@ Examples:
          */
         output: {
           type: String,
-          notify: true,
-          computed: '_computeOutput(datetime, inputFormat, outputFormat, from, to)'
+          notify: true
         }
+      },
+
+      observers: [
+        '_computeOutput(datetime, inputFormat, outputFormat, from, to)'
+      ],
+
+      /**
+       * Recomputes the output
+       */
+      update: function() {
+        this._computeOutput(this.datetime, this.inputFormat, this.outputFormat, this.from, this.to);
       },
 
       _computeOutput: function(datetime, inputFormat, outputFormat, from, to) {
@@ -97,7 +107,7 @@ Examples:
           output = to === 'now' ? output.toNow() : output.to(moment(to));
         }
 
-        return output;
+        this.set('output', output);
       }
     });
   </script>
