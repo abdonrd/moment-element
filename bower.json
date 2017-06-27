@@ -32,7 +32,7 @@
   "variants": {
     "1.x": {
       "dependencies": {
-        "moment": "~2.18.0",
+        "moment": "^2.18.0",
         "polymer": "Polymer/polymer#^1.9.0"
       },
       "devDependencies": {
