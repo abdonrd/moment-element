@@ -1,6 +1,6 @@
 {
   "name": "moment-element",
-  "description": "Polymer element wrapper for the moment library",
+  "description": "Web Component (with Polymer) wrapper for the moment library",
   "authors": [
     "Abdón Rodríguez Davila <a@abdonrd.com>"
   ],

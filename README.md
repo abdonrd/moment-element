@@ -1,10 +1,9 @@
 [![Build status](https://travis-ci.org/abdonrd/moment-element.svg?branch=master)](https://travis-ci.org/abdonrd/moment-element)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/abdonrd/moment-element)
 
-
 ## \<moment-element\>
 
-Polymer element wrapper for the [moment](https://github.com/moment/moment) library.
+Web Component (with Polymer) wrapper for the [moment](https://github.com/moment/moment) library.
 
 Example:
 <!---
