@@ -115,8 +115,7 @@ Examples:
         );
       },
 
-      _computeOutput: function(moment, outputFormat, from, to) {
-        var output;
+      _computeOutput: function(output, outputFormat, from, to) {
         if (outputFormat) {
           output = moment.format(outputFormat);
         } else if (from) {
