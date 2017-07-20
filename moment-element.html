@@ -88,7 +88,10 @@ Examples:
          * Stores the moment object
          * @private
          */
-        __moment: {type: Object, computed: '_computeMoment(datetime, inputFormat)'}
+        __moment: {
+          type: Object,
+          computed: '_computeMoment(datetime, inputFormat)'
+        }
       },
 
       observers: [
