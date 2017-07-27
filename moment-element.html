@@ -82,31 +82,49 @@ Examples:
         output: {
           type: String,
           notify: true
+        },
+
+        /**
+         * Stores the moment object
+         * @private
+         */
+        __moment: {
+          type: Object,
+          computed: '_computeMoment(datetime, inputFormat)'
         }
       },
 
       observers: [
-        '_computeOutput(datetime, inputFormat, outputFormat, from, to)'
+        '_computeOutput(__moment, outputFormat, from, to)'
       ],
+
+      _computeMoment: function(datetime, inputFormat) {
+        return inputFormat ? moment(datetime, inputFormat) : moment(datetime);
+      },
+
+      getMoment: function() {
+        return this.__moment;
+      },
 
       /**
        * Recomputes the output.
        */
       update: function() {
         this._computeOutput(
-          this.datetime, this.inputFormat, this.outputFormat, this.from, this.to
+          this.__moment, this.outputFormat, this.from, this.to
         );
       },
 
-      _computeOutput: function(datetime, inputFormat, outputFormat, from, to) {
-        var output = inputFormat ? moment(datetime, inputFormat) : moment(datetime);
-
+      _computeOutput: function(_moment, outputFormat, from, to) {
+        var output;
         if (outputFormat) {
-          output = output.format(outputFormat);
+          output = _moment.format(outputFormat);
         } else if (from) {
-          output = from === 'now' ? output.fromNow() : output.from(moment(from));
+          output = from === 'now' ? _moment.fromNow() : _moment.from(moment(from));
         } else if (to) {
-          output = to === 'now' ? output.toNow() : output.to(moment(to));
+          output = to === 'now' ? _moment.toNow() : _moment.to(moment(to));
+        } else {
+          output = _moment.toString();
         }
 
         this.set('output', output);
