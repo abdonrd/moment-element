@@ -115,16 +115,16 @@ Examples:
         );
       },
 
-      _computeOutput: function(moment, outputFormat, from, to) {
+      _computeOutput: function(_moment, outputFormat, from, to) {
         var output;
         if (outputFormat) {
-          output = moment.format(outputFormat);
+          output = _moment.format(outputFormat);
         } else if (from) {
-          output = from === 'now' ? moment.fromNow() : moment.from(moment(from));
+          output = from === 'now' ? _moment.fromNow() : _moment.from(moment(from));
         } else if (to) {
-          output = to === 'now' ? moment.toNow() : moment.to(moment(to));
+          output = to === 'now' ? _moment.toNow() : _moment.to(moment(to));
         } else {
-          output = moment.toString();
+          output = _moment.toString();
         }
 
         this.set('output', output);
