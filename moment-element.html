@@ -12,15 +12,23 @@ Web Component (with Polymer) wrapper for the [moment](https://github.com/moment/
 
 Examples:
 
-    <moment-element></moment-element>
-    <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
+    <moment-element output="{{outputA}}">[[outputA]]</moment-element>
+
+    <moment-element datetime="1991-12-31" output="{{outputB}}"></moment-element>
+    <div>[[outputB]]</div>
 
 @demo demo/index.html
 -->
 
 <dom-module id="moment-element">
   <template>
-    [[output]]
+    <style>
+      :host {
+        display: inline;
+      }
+    </style>
+
+    <slot></slot>
   </template>
 
   <script>

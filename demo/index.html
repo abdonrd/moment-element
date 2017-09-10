@@ -31,48 +31,68 @@ This code may only be used under the MIT style license found at https://abdonrd.
       <h3>Current date and date from string (ISO 8601 and another)</h3>
       <demo-snippet>
         <template>
-          <moment-element></moment-element>
-          <moment-element datetime="1991-12-31"></moment-element>
-          <moment-element datetime="12-31-1991" input-format="MM-DD-YYYY"></moment-element>
+          <dom-bind>
+          <template is="dom-bind">
+            <moment-element output="{{outputA}}">[[outputA]]</moment-element>
+            <moment-element datetime="1991-12-31" output="{{outputB}}">[[outputB]]</moment-element>
+            <moment-element datetime="12-31-1991" input-format="MM-DD-YYYY" output="{{outputC}}">[[outputC]]</moment-element>
+          </template>
+          </dom-bind>
         </template>
       </demo-snippet>
 
       <h3>Date from string + format</h3>
       <demo-snippet>
         <template>
-          <moment-element datetime="1991-12-31" output-format="l"></moment-element>
-          <moment-element datetime="12-31-1991" input-format="MM-DD-YYYY" output-format="l"></moment-element>
-          <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
+          <dom-bind>
+          <template is="dom-bind">
+            <moment-element datetime="1991-12-31" output-format="l" output="{{outputA}}">[[outputA]]</moment-element>
+            <moment-element datetime="12-31-1991" input-format="MM-DD-YYYY" output-format="l" output="{{outputB}}">[[outputB]]</moment-element>
+            <moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY" output="{{outputC}}">[[outputC]]</moment-element>
+          </template>
+          </dom-bind>
         </template>
       </demo-snippet>
 
       <h3>Date from now or from custom date</h3>
       <demo-snippet>
         <template>
-          <moment-element datetime="1991-12-31" from="now"></moment-element>
-          <moment-element datetime="1991-12-31" from="2003-06-23"></moment-element>
+          <dom-bind>
+          <template is="dom-bind">
+            <moment-element datetime="1991-12-31" from="now" output="{{outputA}}">[[outputA]]</moment-element>
+            <moment-element datetime="1991-12-31" from="2003-06-23" output="{{outputB}}">[[outputB]]</moment-element>
+          </template>
+          </dom-bind>
         </template>
       </demo-snippet>
 
       <h3>Date to now or to custom date</h3>
       <demo-snippet>
         <template>
-          <moment-element datetime="1991-12-31" to="now"></moment-element>
-          <moment-element datetime="1991-12-31" to="2003-06-23"></moment-element>
+          <dom-bind>
+          <template is="dom-bind">
+            <moment-element datetime="1991-12-31" to="now" output="{{outputA}}">[[outputA]]</moment-element>
+            <moment-element datetime="1991-12-31" to="2003-06-23" output="{{outputB}}">[[outputB]]</moment-element>
+          </template>
+          </dom-bind>
         </template>
       </demo-snippet>
 
       <h3>Use setInterval to update the output</h3>
       <demo-snippet>
         <template>
-          <moment-element id="datetime" from="now"></moment-element>
+          <dom-bind>
+          <template is="dom-bind">
+            <moment-element id="datetime" from="now" output="{{output}}">[[output]]</moment-element>
 
-          <script>
-            var datetime = document.querySelector('#datetime');
-            window.setInterval(function() {
-              datetime.update();
-            }, 2000);
-          </script>
+            <script>
+              var datetime = document.querySelector('#datetime');
+              window.setInterval(function() {
+                datetime.update();
+              }, 2000);
+            </script>
+          </template>
+          </dom-bind>
         </template>
       </demo-snippet>
     </div>

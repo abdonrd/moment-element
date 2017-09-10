@@ -12,19 +12,20 @@ Example:
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="moment-element.html">
-    <next-code-block></next-code-block>
-    <custom-style>
-      <style is="custom-style">
-        moment-element {
-          display: block;
-        }
-      </style>
-    </custom-style>
+    <div>
+      <dom-bind>
+        <template is="dom-bind">
+          <next-code-block></next-code-block>
+        </template>
+      </dom-bind>
+    </div>
   </template>
 </custom-element-demo>
 ```
 -->
 ```html
-<moment-element></moment-element>
-<moment-element datetime="1991-12-31" output-format="MMM DD[,] YYYY"></moment-element>
+<moment-element output="{{outputA}}">[[outputA]]</moment-element>
+
+<moment-element datetime="1991-12-31" output="{{outputB}}"></moment-element>
+<div>[[outputB]]</div>
 ```
