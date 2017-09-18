@@ -14,7 +14,7 @@ Example:
     <link rel="import" href="moment-element.html">
     <div>
       <dom-bind>
-        <template is="dom-bind">
+        <template>
           <next-code-block></next-code-block>
         </template>
       </dom-bind>
